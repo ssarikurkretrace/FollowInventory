@@ -14,6 +14,7 @@ configuration.properties
 *.iml
 *.ipr
 
+
 ### Eclipse ###
 .apt_generated
 .classpath
