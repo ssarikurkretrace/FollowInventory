@@ -47,13 +47,13 @@ public class TeslaInventory {
 
         try (Playwright playwright = Playwright.create()) {
             Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
-                    .setHeadless(false));
+                    .setHeadless(true));
 
             BrowserContext context = browser.newContext(new Browser.NewContextOptions()
                     .setStorageStatePath(Paths.get("storageState.json"))
                     .setIgnoreHTTPSErrors(true)
                     .setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0")
-                    .setViewportSize(1920, 1080)
+                    .setViewportSize(1600, 900)
             );
 
             Page page = context.newPage();
