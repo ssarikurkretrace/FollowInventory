@@ -67,8 +67,8 @@ public class TeslaInventory {
             page.navigate("https://www.tesla.com/en_GB/inventory/new/my?arrangeby=plh&range=0");
             BrowserUtils.waitFor(20);
 
-            page.locator("#tsla-accept-cookie").click();
-////
+//            page.locator("#tsla-accept-cookie").click();
+
             Files.createDirectories(Paths.get("screenshots"));
             page.screenshot(new Page.ScreenshotOptions()
                     .setPath(Paths.get("screenshots/login-success1.png"))
