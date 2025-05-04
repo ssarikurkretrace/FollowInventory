@@ -66,14 +66,14 @@ public class TeslaInventory {
 //            page.navigate("https://www.tesla.com/tr_TR/inventory/new/my?arrangeby=plh&zip=06200&range=0&lat=41.0082&lng=28.9784");
             page.navigate("https://www.tesla.com/en_GB/inventory/new/my?arrangeby=plh&range=0");
             BrowserUtils.waitFor(20);
+
+            page.locator("#tsla-accept-cookie").click();
+////
             Files.createDirectories(Paths.get("screenshots"));
             page.screenshot(new Page.ScreenshotOptions()
                     .setPath(Paths.get("screenshots/login-success1.png"))
                     .setFullPage(true));
             BrowserUtils.waitFor(1);
-
-            page.locator("#tsla-accept-cookie").click();
-////
 //            page.locator(".tds-link.tds-link--secondary.tds-locale-selector-language.tds-lang--tr").click();
 //
 //            BrowserUtils.waitFor(2);
