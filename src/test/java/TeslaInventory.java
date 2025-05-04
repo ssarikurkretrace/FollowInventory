@@ -85,7 +85,7 @@ public class TeslaInventory {
 
             List<Map<String, Object>> inventoryList = new ArrayList<>();
 
-            envanterSize = 1;
+            envanterSize = 2;
             if (envanterSize > 0) {
 //                Files.createDirectories(Paths.get("screenshots"));
                 page.screenshot(new Page.ScreenshotOptions()
@@ -96,14 +96,19 @@ public class TeslaInventory {
                     Map<String, Object> inventoryMap = new HashMap<>();
 
                     // Her bir kart içinde model ve fiyatı bul
-                    Locator modelLocator = envanterLocator.nth(i).locator(".tds-text_color--10");
-                    Locator priceLocator = envanterLocator.nth(i).locator(".result-price .tds-text--h4");
+//                    Locator modelLocator = envanterLocator.nth(i).locator(".tds-text_color--10");
+//                    Locator priceLocator = envanterLocator.nth(i).locator(".result-price .tds-text--h4");
+//
+//                    String modelStr = modelLocator.textContent().trim();
+//                    String priceStr = priceLocator.textContent().trim();
+//
+//                    inventoryMap.put("ModelType", modelStr);
+//                    inventoryMap.put("Price", priceStr);
 
-                    String modelStr = modelLocator.textContent().trim();
-                    String priceStr = priceLocator.textContent().trim();
 
-                    inventoryMap.put("ModelType", modelStr);
-                    inventoryMap.put("Price", priceStr);
+                    inventoryMap.put("ModelType", "modelStr");
+                    inventoryMap.put("Price", "priceStr");
+
 
                     inventoryList.add(inventoryMap);
                 }
