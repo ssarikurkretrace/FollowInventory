@@ -72,7 +72,7 @@ public class TeslaInventory {
                     .setFullPage(true));
             BrowserUtils.waitFor(1);
 
-////            page.locator("#tsla-accept-cookie").click();
+            page.locator("#tsla-accept-cookie").click();
 ////
 //            page.locator(".tds-link.tds-link--secondary.tds-locale-selector-language.tds-lang--tr").click();
 //
