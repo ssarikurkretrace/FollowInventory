@@ -46,8 +46,14 @@ public class TeslaInventory {
     public static void getInventoryFromUI(){
 
         try (Playwright playwright = Playwright.create()) {
-            Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
-                    .setHeadless(true));
+//            Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
+//                    .setHeadless(false));
+
+            Browser browser = playwright.firefox().connect(
+                    "ws://playwright-server:3000/ws",  // Docker container adı ile
+                    new BrowserType.ConnectOptions()
+                            .setTimeout(120000)  // Timeout süresini artır
+            );
 
             BrowserContext context = browser.newContext(new Browser.NewContextOptions()
                     .setStorageStatePath(Paths.get("storageState.json"))
