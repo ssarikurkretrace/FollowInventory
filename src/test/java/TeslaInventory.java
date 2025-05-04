@@ -46,14 +46,14 @@ public class TeslaInventory {
     public static void getInventoryFromUI(){
 
         try (Playwright playwright = Playwright.create()) {
-//            Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
-//                    .setHeadless(false));
+            Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
+                    .setHeadless(false));
 
-            Browser browser = playwright.firefox().connect(
-                    "ws://playwright-server:3000/ws",  // Docker container adı ile
-                    new BrowserType.ConnectOptions()
-                            .setTimeout(120000)  // Timeout süresini artır
-            );
+//            Browser browser = playwright.firefox().connect(
+//                    "ws://playwright-server:3000/ws",  // Docker container adı ile
+//                    new BrowserType.ConnectOptions()
+//                            .setTimeout(120000)  // Timeout süresini artır
+//            );
 
             BrowserContext context = browser.newContext(new Browser.NewContextOptions()
                     .setStorageStatePath(Paths.get("storageState.json"))
@@ -65,7 +65,7 @@ public class TeslaInventory {
             Page page = context.newPage();
 //            page.navigate("https://www.tesla.com/tr_TR/inventory/new/my?arrangeby=plh&zip=06200&range=0&lat=41.0082&lng=28.9784");
             page.navigate("https://www.tesla.com/en_GB/inventory/new/my?arrangeby=plh&range=0");
-            BrowserUtils.waitFor(10);
+            BrowserUtils.waitFor(20);
             Files.createDirectories(Paths.get("screenshots"));
             page.screenshot(new Page.ScreenshotOptions()
                     .setPath(Paths.get("screenshots/login-success1.png"))
