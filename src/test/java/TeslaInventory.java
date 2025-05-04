@@ -85,6 +85,7 @@ public class TeslaInventory {
 
             List<Map<String, Object>> inventoryList = new ArrayList<>();
 
+            envanterSize = 1;
             if (envanterSize > 0) {
 //                Files.createDirectories(Paths.get("screenshots"));
                 page.screenshot(new Page.ScreenshotOptions()
