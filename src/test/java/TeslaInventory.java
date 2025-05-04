@@ -59,13 +59,13 @@ public class TeslaInventory {
                     .setStorageStatePath(Paths.get("storageState.json"))
                     .setIgnoreHTTPSErrors(true)
                     .setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0")
-                    .setViewportSize(1280, 1024)
+                    .setViewportSize(1600, 900)
             );
 
             Page page = context.newPage();
 //            page.navigate("https://www.tesla.com/tr_TR/inventory/new/my?arrangeby=plh&zip=06200&range=0&lat=41.0082&lng=28.9784");
             page.navigate("https://www.tesla.com/en_GB/inventory/new/my?arrangeby=plh&range=0");
-            BrowserUtils.waitFor(3);
+            BrowserUtils.waitFor(10);
             Files.createDirectories(Paths.get("screenshots"));
             page.screenshot(new Page.ScreenshotOptions()
                     .setPath(Paths.get("screenshots/login-success1.png"))
