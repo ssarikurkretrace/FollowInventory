@@ -96,17 +96,14 @@ public class TeslaInventory {
                     Map<String, Object> inventoryMap = new HashMap<>();
 
                     // Her bir kart içinde model ve fiyatı bul
-//                    Locator modelLocator = envanterLocator.nth(i).locator(".tds-text_color--10");
-//                    Locator priceLocator = envanterLocator.nth(i).locator(".result-price .tds-text--h4");
-//
-//                    String modelStr = modelLocator.textContent().trim();
-//                    String priceStr = priceLocator.textContent().trim();
+                    Locator modelLocator = envanterLocator.nth(i).locator(".tds-text_color--10");
+                    Locator priceLocator = envanterLocator.nth(i).locator(".result-price .tds-text--h4");
 
-//                    inventoryMap.put("ModelType", modelStr);
-//                    inventoryMap.put("Price", priceStr);
+                    String modelStr = modelLocator.textContent().trim();
+                    String priceStr = priceLocator.textContent().trim();
 
-                    inventoryMap.put("ModelType", "modelStr");
-                    inventoryMap.put("Price", "priceStr");
+                    inventoryMap.put("ModelType", modelStr);
+                    inventoryMap.put("Price", priceStr);
 
                     inventoryList.add(inventoryMap);
                 }
@@ -117,14 +114,14 @@ public class TeslaInventory {
 
                 // CSV'yi e-posta ile gönder
                 BrowserUtils.waitFor(3);
-                GmailUtils.sendEmail(
-                        "Envanterde Arac Var \nPlease See attachment. "+inventoryList,
+                GmailUtils.sendAttach(
+                        "Envanterde Arac Var \nPlease See attachment. \n"+inventoryList,
                         "Alarm Envanterde Arac Var!!!!!",
                         ConfigurationReader.get("toMail"),
-                        ConfigurationReader.get("fromMail")
+                        ConfigurationReader.get("fromMail"),
 //                        BrowserUtils.getDownloadPath(fileName),
-//                        "screenshots/login-success1.png",
-//                        "screenshots/login-success2.png"
+                        "screenshots/login-success1.png",
+                        "screenshots/login-success2.png"
                 );
             }
 
