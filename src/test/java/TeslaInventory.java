@@ -112,19 +112,19 @@ public class TeslaInventory {
                 }
 
                 // Tüm listeyi CSV'ye yaz Downloads klasörüne kaydet.
-                String fileName = "envanterList.csv";
-                ExportUtils.toCSV(fileName, inventoryList);
+//                String fileName = "envanterList.csv";
+//                ExportUtils.toCSV(fileName, inventoryList);
 
                 // CSV'yi e-posta ile gönder
                 BrowserUtils.waitFor(3);
-                GmailUtils.sendAttach(
-                        "Envanterde Arac Var \nPlease See attachment.",
+                GmailUtils.sendEmail(
+                        "Envanterde Arac Var \nPlease See attachment. "+inventoryList,
                         "Alarm Envanterde Arac Var!!!!!",
                         ConfigurationReader.get("toMail"),
-                        ConfigurationReader.get("fromMail"),
-                        BrowserUtils.getDownloadPath(fileName),
-                        "screenshots/login-success1.png",
-                        "screenshots/login-success2.png"
+                        ConfigurationReader.get("fromMail")
+//                        BrowserUtils.getDownloadPath(fileName),
+//                        "screenshots/login-success1.png",
+//                        "screenshots/login-success2.png"
                 );
             }
 
