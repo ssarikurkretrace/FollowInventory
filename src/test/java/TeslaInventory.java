@@ -96,14 +96,17 @@ public class TeslaInventory {
                     Map<String, Object> inventoryMap = new HashMap<>();
 
                     // Her bir kart içinde model ve fiyatı bul
-                    Locator modelLocator = envanterLocator.nth(i).locator(".tds-text_color--10");
-                    Locator priceLocator = envanterLocator.nth(i).locator(".result-price .tds-text--h4");
+//                    Locator modelLocator = envanterLocator.nth(i).locator(".tds-text_color--10");
+//                    Locator priceLocator = envanterLocator.nth(i).locator(".result-price .tds-text--h4");
+//
+//                    String modelStr = modelLocator.textContent().trim();
+//                    String priceStr = priceLocator.textContent().trim();
 
-                    String modelStr = modelLocator.textContent().trim();
-                    String priceStr = priceLocator.textContent().trim();
+//                    inventoryMap.put("ModelType", modelStr);
+//                    inventoryMap.put("Price", priceStr);
 
-                    inventoryMap.put("ModelType", modelStr);
-                    inventoryMap.put("Price", priceStr);
+                    inventoryMap.put("ModelType", "modelStr");
+                    inventoryMap.put("Price", "priceStr");
 
                     inventoryList.add(inventoryMap);
                 }
