@@ -46,14 +46,14 @@ public class TeslaInventory {
     public static void getInventoryFromUI(){
 
         try (Playwright playwright = Playwright.create()) {
-            Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
-                    .setHeadless(false));
+//            Browser browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
+//                    .setHeadless(false));
 
-//            Browser browser = playwright.firefox().connect(
-//                    "ws://playwright-server:3000/ws",  // Docker container adı ile
-//                    new BrowserType.ConnectOptions()
-//                            .setTimeout(120000)  // Timeout süresini artır
-//            );
+            Browser browser = playwright.firefox().connect(
+                    "ws://playwright-server:3000/ws",  // Docker container adı ile
+                    new BrowserType.ConnectOptions()
+                            .setTimeout(120000)  // Timeout süresini artır
+            );
 
             BrowserContext context = browser.newContext(new Browser.NewContextOptions()
                     .setStorageStatePath(Paths.get("storageState.json"))
@@ -113,9 +113,9 @@ public class TeslaInventory {
                     inventoryList.add(inventoryMap);
                 }
 
-                // Tüm listeyi CSV'ye yaz Downloads klasörüne kaydet.
-//                String fileName = "envanterList.csv";
-//                ExportUtils.toCSV(fileName, inventoryList);
+//                 Tüm listeyi CSV'ye yaz Downloads klasörüne kaydet.
+                String fileName = "envanterList.csv";
+                ExportUtils.toCSV(fileName, inventoryList);
 
                 // CSV'yi e-posta ile gönder
                 BrowserUtils.waitFor(3);
@@ -124,7 +124,7 @@ public class TeslaInventory {
                         "Alarm Envanterde Arac Var!!!!!",
                         ConfigurationReader.get("toMail"),
                         ConfigurationReader.get("fromMail"),
-//                        BrowserUtils.getDownloadPath(fileName),
+                        BrowserUtils.getDownloadPath(fileName),
                         "screenshots/login-success1.png",
                         "screenshots/login-success2.png"
                 );
